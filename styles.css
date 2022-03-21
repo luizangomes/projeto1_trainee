@@ -47,11 +47,16 @@ a {
     justify-content: space-between;
   }
 
-/*form styles*/
+/*table styles*/
 table{
     width: 80%;
     margin: 1rem auto;
 }
+
+thead{
+    background-color: var(--table-head-bg);
+}
+
 
 #form_fields{
     display: flex;
@@ -77,13 +82,6 @@ input{
     margin: 2% 0%;
 }
 
-input[type = "submit"]{
-    width: 35%;
-    background-color: var(--button-color);
-    color: var(--text-color);
-    border-color: var(--button-color) ;
-    cursor: pointer; /*troca o formato do cursor quando passa em cima*/
-}
 
 footer{
     background-color: var(--footer-color);
