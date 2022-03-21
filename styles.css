@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap');
+
+/*colors and images*/
+:root{
+    --button-color: #28a745;
+    --dark-layer: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6));
+    --text-color: #fff;
+    --input-border-color: #878584;
+    --footer-color: #e3e3e3;
+    --header-bg-image: url(img_bg_backoffice_usuario.jpg);
+}
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+/*header styles*/
+header{
+    background-image: var(--dark-layer), var(--header-bg-image);
+    background-size: cover;
+    background-position: center;
+    height: 45vh;
+    color: var(--text-color);
+    box-sizing: border-box;
+    padding: 2% 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.upper_menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.menu{
+    display: flex;
+    column-gap: 2rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    justify-content: space-between;
+  }
+
+/*form styles*/
+table{
+    width: 80%;
+    margin: 1rem auto;
+}
+
+#form_fields{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.form_field{
+    min-width: 49%;
+}
+
+label{
+    font-size: .7rem;
+}
+
+input{
+    box-sizing: border-box;
+    width: 100%;
+    outline: none;
+    border: 1px solid var(--input-border-color);
+    padding: .5rem;
+    border-radius: 3px;
+    margin: 2% 0%;
+}
+
+input[type = "submit"]{
+    width: 35%;
+    background-color: var(--button-color);
+    color: var(--text-color);
+    border-color: var(--button-color) ;
+    cursor: pointer; /*troca o formato do cursor quando passa em cima*/
+}
+
+footer{
+    background-color: var(--footer-color);
+    min-height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0%;
+}
