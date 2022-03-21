@@ -72,16 +72,6 @@ label{
     font-size: .7rem;
 }
 
-input{
-    box-sizing: border-box;
-    width: 100%;
-    outline: none;
-    border: 1px solid var(--input-border-color);
-    padding: .5rem;
-    border-radius: 3px;
-    margin: 2% 0%;
-}
-
 
 footer{
     background-color: var(--footer-color);
