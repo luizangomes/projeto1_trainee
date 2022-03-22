@@ -2,11 +2,17 @@
 
 /*colors and images*/
 :root{
-    --button-color: #28a745;
-    --dark-layer: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6));
-    --text-color: #fff;
-    --input-border-color: #878584;
+    --nav-links-color: #fff;
+    --button-hover-color: #878584;
+    --backoffice-menu-bg: #343a40;
+    --table-head-bg: #e9ecef;
+    --nav-link-hover-color: #f79800;
     --footer-color: #e3e3e3;
+    --dark-layer: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6));
+    --edit-button-color: #ffa207;
+    --delete-button-color: #dc3545;
+    --pagination-active-bg: #007bff;
+    --text-color: #fff;
     --header-bg-image: url(img_bg_backoffice_usuario.jpg);
 }
 
@@ -36,16 +42,27 @@ header{
     align-items: center;
     justify-content: space-between;
 }
+
+.backoffice_functions{
+    background-color: var(--backoffice-menu-bg);
+    display: flex;
+    align-items: center;
+    column-gap: 2rem;
+    color: var(--nav-links-color);
+    font-size: 0.7rem;
+    padding: 1rem 5%;
+}
+
 .menu{
     display: flex;
     column-gap: 2rem;
 }
 
-a {
+a{
     text-decoration: none;
     color: inherit;
     justify-content: space-between;
-  }
+}
 
 /*table styles*/
 table{
@@ -55,6 +72,13 @@ table{
 
 thead{
     background-color: var(--table-head-bg);
+    padding: 1rem;
+}
+
+th{
+    text-align: left;
+    width: 20rem;
+    padding: 1rem;
 }
 
 
