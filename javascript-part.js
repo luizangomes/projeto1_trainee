@@ -1,30 +1,98 @@
-let users = [
-    {id:1,first_name:"Lauren",last_name:"Shaxby",email:"lshaxby0@php.net",created_at:"16/10/2021"},
-    {id:2,first_name:"Ardenia",last_name:"Paddingdon",email:"apaddingdon1@nsw.gov.au",created_at:"27/07/2021"},
-    {id:3,first_name:"Renaldo",last_name:"Alenichev",email:"ralenichev2@ftc.gov",created_at:"10/06/2021"},
-    {id:4,first_name:"Nichole",last_name:"OHeneghan",email:"noheneghan3@flavors.me",created_at:"28/06/2021"},
-    {id:5,first_name:"Haywood",last_name:"Daintry",email:"hdaintry4@nhs.uk",created_at:"18/03/2021"},
-    {id:6,first_name:"Leslie",last_name:"Daile",email:"ldaile5@vimeo.com",created_at:"23/05/2021"},
-    {id:7,first_name:"Byrann",last_name:"Slorance",email:"bslorance6@kickstarter.com",created_at:"15/05/2021"},
-    {id:8,first_name:"My",last_name:"Swendell",email:"mswendell7@moonfruit.com",created_at:"15/12/2021"},
-    {id:9,first_name:"Brier",last_name:"Esson",email:"besson8@usa.gov",created_at:"14/03/2021"},
-    {id:10,first_name:"Seth",last_name:"Piddle",email:"spiddle9@nationalgeographic.com",created_at:"20/10/2021"},
-    {id:11,first_name:"Fer",last_name:"Piddle",email:"ferspiddle9@nationalgeographic.com",created_at:"20/10/2022"},
-];
+var currentPage = 1;
+var ROWS_PER_PAGE = 5;
 
-for (let i = 0; i < users.length; i++) {  //escreve cada elemento desse array
-    console.log(users[i])
+function getTotalPages(){
+    return Math.ceil(users.length / ROWS_PER_PAGE) //quantidade de páginas
+}
+function getcurrentRows(currentPage){                    //página atual com os usuários respectivos de suas páginas
+    const start = (currentPage - 1) * ROWS_PER_PAGE
+    const end = start + ROWS_PER_PAGE
+    return users.slice(start, end)                      //retorna a lista de usuários atuais
+}
+function createUsersTable(currentPage){
+    var currentRows = getcurrentRows(currentPage)           //pega os usuários atuais
+    var k = '<tbody>'
+    for(i = 0;i < currentRows.length; i++){
+        k+= '<tr>';
+        k+= '<td>' + (currentRows[i].first_name + " " + currentRows[i].last_name) + '</td>';
+        k+= '<td>' + currentRows[i].email + '</td>';
+        k+= '<td>' + currentRows[i].created_at + '</td>';
+        k+= '<td>' + '<button class="text_button edit_button" type="button">editar</button>' + "\t" + 
+            '<button class="text_button delete_button" type="button">excluir</button>' +'</td>';
+        k+= '</tr>';
+    }
+    k+='</tbody>';
+    document.getElementById('tableUserData').innerHTML = k;
 }
 
-var k = '<tbody>'
-for(i = 0;i < users.length; i++){
-    let userFullName = (users[i].first_name + " " + users[i].last_name)
-    k+= '<tr>';
-    k+= '<td>' + userFullName + '</td>';
-    k+= '<td>' + users[i].email + '</td>';
-    k+= '<td>' + users[i].created_at + '</td>';
-    k+= '<td>' + '<button type="button">editar</button>' + "\t" + '<button type="button">excluir</button>' +'</td>';
-    k+= '</tr>';
+createUsersTable(currentPage)
+
+function render(){
+    const totalPages = getTotalPages()
+    if (currentPage > totalPages){      //se a página estiver acima do valor máximo de páginas existentes, ou seja, não existir
+        currentPage = totalPages
+    }
+    renderPagination(totalPages)        //troca de páginas
 }
-k+='</tbody>';
-document.getElementById('tableUserData').innerHTML = k;
+
+function changePage(newPage){
+    const totalPages = getTotalPages()
+    if (newPage >= 1 && newPage <= totalPages){     //se a página existe
+        currentPage = newPage
+        createUsersTable(currentPage)
+    }
+    render()            //atualiza depois dos comandos realizados
+}
+
+function createNextPageButton(){            //adiciona o botão da próxima página
+    const nextPageButton = document.createElement('button')
+    nextPageButton.type = 'button'
+    nextPageButton.textContent = '>>'
+    nextPageButton.addEventListener('click', ()=>
+        changePage(currentPage + 1)
+    ) //ação de mudar a página
+    return nextPageButton
+}
+
+function createPreviousPageButton(){ //adiciona o botão pra página anterior
+    const previousPageButton = document.createElement('button')
+    previousPageButton.type = 'button'
+    previousPageButton.textContent = '<<'
+    previousPageButton.addEventListener('click', ()=>
+        changePage(currentPage - 1)    
+    )  //ação de mudar a página
+    return previousPageButton
+}
+
+function createPaginationButton(page){      //mostra o número de cada página, para melhor navegação
+    const paginationButton = document.createElement('button')
+    paginationButton.type = 'button'
+    paginationButton.textContent = page         //o número da página
+    if (page === currentPage){
+        paginationButton.classList.add('active')        //mostra em que página o usuário está
+    }
+    paginationButton.addEventListener('click', ()=>
+        changePage(page)
+    )  //ação de mudar para a página escolhida, se pressionada
+    return paginationButton
+}
+
+function renderPagination(totalPages){          //render para a utilização de páginas
+    const pagination = document.querySelector('.pagination')
+    pagination.replaceChildren()        //troca as páginas
+
+    if (totalPages){            //checa se há páginas
+        const previousPageButton = createPreviousPageButton()
+        pagination.append(previousPageButton)       //se o botão entrar em ação
+
+        for (let page = 1; page <= totalPages; page++) { //criando o número de cada página no pagination menu
+            const pageButton = createPaginationButton(page)
+            pagination.appendChild(pageButton)
+        }
+
+        const nextPageButton = createNextPageButton()
+        pagination.append(nextPageButton)           //se o botão entrar em ação
+    }
+}
+
+render()
