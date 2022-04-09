@@ -6,12 +6,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
         <title>dinnerdash | Backoffice</title>
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <header>
+        <header class="header_responsive">
             <div class="upper_menu">
                 <h3>dinnerdash</h3>
                 <nav class="menu">
@@ -32,16 +32,18 @@
             <a href="#">Categorias de Refeição</a>
         </nav>      
         <main>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Email</th>
-                        <th>Cadastrado em</th>
-                        <th>  </th>
-                </thead>
-                <tbody id="tableUserData"></tbody>
-            </table>
+            <div class="scroll_responsive">
+                <table class="table_responsive">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Cadastrado em</th>
+                            <th>  </th>
+                    </thead>
+                    <tbody id="tableUserData"></tbody>
+                </table>
+            </div>
             <div class="pagination">
                 <button type="button">&lt;&lt;</button>
                 <button type="button">&gt;&gt;</button>

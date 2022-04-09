@@ -188,3 +188,47 @@ footer{
     border-bottom-right-radius: 5px;
 }
   
+
+@media screen and (max-width: 800px){
+    .header_responsive{
+        height: 25vh;
+        font-size: 0.9rem;
+        border-spacing: 0;
+        width: 100%;
+    }
+    .backoffice_functions{
+        font-size: 0.75rem;
+        height: 1vh;
+        column-gap: 0.5rem;
+    }
+    .scroll_responsive{
+        overflow: auto;
+        border-collapse: collapse;
+        overflow-x: auto;
+        width: 100%;
+    }
+    .table_responsive{
+        font-size: 0.8rem;
+        overflow: auto;
+        border-collapse: collapse;
+        overflow-x: auto;
+    }
+    th, td {
+        padding: 8px;
+    }
+    .pagination button{
+        font-size: 0.8rem;
+    }
+    .pagination{
+        font-size: 0.8rem auto;
+    }
+    .action_buttons{
+        font-size: 0.8rem;
+    }
+    .text_button{
+        font-size: 0.8rem;
+    }
+    .footer{
+        font-size: 0.25rem;
+    }
+}
