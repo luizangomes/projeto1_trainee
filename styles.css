@@ -64,6 +64,13 @@ a{
     justify-content: space-between;
 }
 
+
+/*Tamanho da mensagem de alerta*/
+.alert {
+    width:40%;    
+    display:inline-block;
+ }
+
 /*table styles*/
 table{
     width: 80%;
@@ -127,7 +134,11 @@ label{
 
 .edit_button {
     color: var(--edit-button-color);
-  }
+}
+
+.edit_button:hover, .delete_button:hover {
+    color: var(--button-hover-color);
+}
 
 .action_buttons {
     display: flex;
@@ -151,33 +162,33 @@ footer{
 /*Pagination*/
 .pagination {
     display: flex;
-    margin: 1rem auto;
+    margin: 0 auto;
   }
   
-  .pagination button {
+.pagination button {
     color: black;
     padding: 0.5rem 1rem;
     text-decoration: none;
     border: 1px solid #ddd;
-  }
+}
   
-  .pagination button.active {
+.pagination button.active {
     background-color: var(--pagination-active-bg);
     color: white;
     border: 1px solid var(--pagination-active-bg);
-  }
+}
   
-  .pagination button:hover:not(.active) {
+.pagination button:hover:not(.active) {
     background-color: #ddd;
-  }
+}
   
-  .pagination button:first-child {
+.pagination button:first-child {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-  }
+}
   
-  .pagination button:last-child {
+.pagination button:last-child {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-  }
+}
   
