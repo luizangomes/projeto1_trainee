@@ -1,3 +1,7 @@
+/*
+desenvolvido pela TRAINEE: Luiza de Araújo Nunes Gomes
+*/
+
 var currentPage = 1;
 var ROWS_PER_PAGE = 5;
 
@@ -121,9 +125,7 @@ function createPreviousPageButton(){ //adiciona o botão pra página anterior
     const previousPageButton = document.createElement('button')
     previousPageButton.type = 'button'
     previousPageButton.textContent = '<<'
-    previousPageButton.addEventListener('click', ()=>
-        changePage(currentPage - 1)    
-    )  //ação de mudar a página
+    previousPageButton.addEventListener('click', ()=> changePage(currentPage - 1))  //ação de mudar a página
     return previousPageButton
 }
 
@@ -134,9 +136,7 @@ function createPaginationButton(page){      //mostra o número de cada página, 
     if (page === currentPage){
         paginationButton.classList.add('active')        //mostra em que página o usuário está
     }
-    paginationButton.addEventListener('click', ()=>
-        changePage(page)
-    )  //ação de mudar para a página escolhida, se pressionada
+    paginationButton.addEventListener('click', ()=> changePage(page))  //ação de mudar para a página escolhida, se pressionada
     return paginationButton
 }
 
