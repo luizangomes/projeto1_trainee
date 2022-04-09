@@ -65,7 +65,6 @@ header{
 a{
     text-decoration: none;
     color: inherit;
-    justify-content: space-between;
 }
 
 header a:hover {
@@ -95,7 +94,10 @@ table{
 
 thead{
     background-color: var(--table-head-bg);
-    padding: 1rem;
+}
+
+tbody {
+    vertical-align: top;
 }
 
 th{
@@ -156,7 +158,7 @@ footer{
 /*Pagination*/
 .pagination {
     display: flex;
-    margin: 0 auto;
+    margin: 1rem auto;
   }
   
 .pagination button {
