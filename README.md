@@ -1,7 +1,5 @@
-# projeto1_trainee_cjr
-Primeiro Projeto Trainee
-
-Trainee: Luiza de Araújo Nunes Gomes
+# Primeiro projeto do processo trainee da CJR
+## Trainee: Luiza de Araújo Nunes Gomes
 
 Os arquivos presentes neste projeto são:
  - arquivo "index.html": estrutura em html do projeto;
